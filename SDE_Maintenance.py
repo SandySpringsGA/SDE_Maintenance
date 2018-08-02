@@ -223,7 +223,7 @@ arcpy.CreateVersion_management(db, "dbo.DEFAULT", versionName, "PUBLIC")
 for i in versionList:  # "versionList" variable defined in line *156* above
 	
 	 # if statement to find all named (user) versions
-    if(str(versionList[i]) != "dbo.DEFAULT" || str(versionList[i]) != "DBO.QC"):
+    if(str(versionList[i]) != "dbo.DEFAULT" and str(versionList[i]) != "DBO.QC"):
         versionName = str(versionList[i])
         arcpy.CreateVersion_management(db, parentVersion, versionName, accessPermission)
         
