@@ -1,4 +1,4 @@
-################################################################################################################################# 
+#################################################################################################################################
 #                                                                                                                               #
 #                                                      SDE MAINTENENACE                                                         #
 #                                                RECONCILE, POST && COMPRESS                                                    #
@@ -63,7 +63,7 @@ def checkDayLength(day, dayString):
 	if(int(day) < 10):  
          # then a leading "0" gets assigned to the "dayString" variable
 		dayString = "0"  
-        # then the day of the month gets appended to the variable, useful for making 1 into 01 which is more human-readable in a file name
+        # then the day of the month is appended, useful for making 1 into 01 which is more human-readable in a file name
 		dayString = dayString + (str(day))  
      # otherwise, the two-digit day gets cast from an int to a String, then is assigned to the "dayString" variable
 	else: dayString = str(day)
@@ -77,7 +77,7 @@ def checkMonthLength(month, monthString):
 	if(int(month) < 10):
          # then a leading "0" gets assigned to the "monthString" variable
 		monthString = "0"
-         # then the month number gets appended to the variable, useful for making 1 into 01 which is more human-readable in a file name
+         # then the month number is appended, useful for making 1 into 01 which is more human-readable in a file name
 		monthString = monthString + (str(month))
      # otherwise, the two-digit month number gets cast from an int to a String, then is assigned to the "monthString" variable
 	else: monthString = str(month)
@@ -264,8 +264,7 @@ file.close()
 #                                                 * STILL NEED TO ADD: *                                                       #
 #                                                                                                                              #
 #    > Exception handling (try, except --> write to errorLog.txt file for any errors)                                          #
-#    > References to batch script files to stop && start the ArcGIS server service before && after maintenance                 #                                 #
 #                                                                                                                              #
-#                                                                                                                              #                                                                                                                             #
+#                                                                                                                              #
 ################################################################################################################################
 
