@@ -30,9 +30,10 @@ import os       # Necessary: to run any of the file I/O methods && for creating 
 #################################################################################################################################
 
 #                                            DEFINE FILEPATH/CONNECTION VARIABLES:
+#                                    database/server/filepaths removed for security reasons
 
 # connection path for the database, change this variable to perform maintenance on a different database
-# current path is for the 'REDACTED' instance, 'REDACTED' database
+# current path is for the 'REDACTED' instance, 'REDACTED' database  
 db = "REDACTED"
 
 # filepath where a directory will be created for the current maintenance task(s)
