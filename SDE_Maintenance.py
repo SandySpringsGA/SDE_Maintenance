@@ -220,14 +220,19 @@ accessPermission = "PROTECTED"
 arcpy.CreateVersion_management(db, "dbo.DEFAULT", versionName, "PUBLIC")
 
 # loop to iterate over each user in the userList tuple & recreate that version
-for i in versionList:  # "versionList" variable defined in line *156* above
+for version in versionList:  # "versionList" variable defined in line *156* above
 	
 	 # if statement to find all named (user) versions
-    if(str(versionList[i]) != "dbo.DEFAULT" and str(versionList[i]) != "DBO.QC"):
-        versionName = str(versionList[i])
-        arcpy.CreateVersion_management(db, parentVersion, versionName, accessPermission)
+    if(version != "dbo.DEFAULT" and version != "DBO.QC"):
+        if("DBO." in version or "dbo." in version):
+            versionName = version[4:]
+            arcpy.CreateVersion_management(db, parentVersion, versionName, accessPermission)
+        else: 
+            versionName = version
+            arcpy.CreateVersion_management(db, parentVersion, versionName, accessPermission)
         
-    else: continue # this will skip over the "dbo.DEFAULT" & "DBO.QC" items in the versionList tuple
+    else: 
+        continue # this will skip over the "dbo.DEFAULT" & "DBO.QC" items in the versionList tuple
 
 ################################################################################################################################
 
