@@ -126,7 +126,7 @@ arcpy.AcceptConnections(db, False)
 
 # optional method to wait 15 minutes after blocking all new connections
     # this method can be used if you want to send out notifications to users that are still connected to save, log-off, etc.
-# time.sleep(900) 
+# time.sleep(100) 
 
 ################################################################################################################################
 
