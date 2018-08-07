@@ -121,13 +121,12 @@ for i in userList:
 # method to close the file which saves the file and also prevents the file object from persisting in system memory
 file.close()
 
-
 # method to prevent any additional connections to the DB
 arcpy.AcceptConnections(db, False)
 
 # optional method to wait 15 minutes after blocking all new connections
     # this method can be used if you want to send out notifications to users that are still connected to save, log-off, etc.
-time.sleep(900) 
+# time.sleep(900) 
 
 ################################################################################################################################
 
@@ -220,7 +219,7 @@ accessPermission = "PROTECTED"
 arcpy.CreateVersion_management(db, "dbo.DEFAULT", versionName, "PUBLIC")
 
 # loop to iterate over each user in the userList tuple & recreate that version
-for version in versionList:  # "versionList" variable defined in line *156* above
+for version in versionList:  # "versionList" variable defined in line *161* above
 	
 	 # if statement to find all named (user) versions
     if(version != "dbo.DEFAULT" and version != "DBO.QC"):
@@ -230,7 +229,6 @@ for version in versionList:  # "versionList" variable defined in line *156* abov
         else: 
             versionName = version
             arcpy.CreateVersion_management(db, parentVersion, versionName, accessPermission)
-        
     else: 
         continue # this will skip over the "dbo.DEFAULT" & "DBO.QC" items in the versionList tuple
 
