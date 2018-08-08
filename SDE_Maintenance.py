@@ -45,13 +45,13 @@ SDE_maintenance_folderPath = "REDACTED" #format = r'filepath'
 
 today = datetime.date.today() # method to get the current date, assigning it to the variable "today"
 
-day = today.day               # assigns the day portion of today's date to the "day" variable
+day   = today.day             # assigns the day portion of today's date to the "day" variable
 month = today.month           # assigns the month portion of today's date to the "month" variable
-year = today.year             # assigns the year portion of today's date to the "year" variable
+year  = today.year            # assigns the year portion of today's date to the "year" variable
 
-dayString = ''                # creates an empty String variable for the day that will be used later
+dayString   = ''              # creates an empty String variable for the day that will be used later
 monthString = ''              # creates an empty String variable for the day that will be used later
-yearString = str(year)        # casts the year variable from int to String and assigns it to the "yearString" variable
+yearString  = str(year)       # casts the year variable from int to String and assigns it to the "yearString" variable
 
 
 # Functions to encapsulate the methods to check if the day/month portions of the date are less than 10.  
