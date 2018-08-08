@@ -34,10 +34,10 @@ import os       # Necessary: to run any of the file I/O methods && for creating 
 
 # connection path for the database, change this variable to perform maintenance on a different database
 # current path is for the 'REDACTED' instance, 'REDACTED' database  
-db = "REDACTED"
+db = "REDACTED" #format = r'filepath'  where 'filepath' is the path to the .sde connection file for the Db you are connecting to
 
 # filepath where a directory will be created for the current maintenance task(s)
-SDE_maintenance_folderPath = "REDACTED"
+SDE_maintenance_folderPath = "REDACTED" #format = r'filepath'
 
 #################################################################################################################################
 
@@ -96,8 +96,10 @@ monthString = checkMonthLength(month, monthString)  # this calls the above defin
 # Variable to concatenate the String versions of the "day" "month" and "year" variable into the folowing format: YYYYMMDD
 todayString = yearString + monthString + dayString
 
+os.mkdir(os.path.join(SDE_maintenance_folderPath, "Update_" + todayString))
+
 # Variable for the file path where all logs and other files will be stored for this maintenance period
-currentFolderPath = SDE_maintenance_folderPath + "_Update" + todayString
+currentFolderPath = SDE_maintenance_folderPath + "/Update_" + todayString
 
 # Reconcile & Post Log file name 
 reconcileFileName = currentFolderPath + "//Reconcile_Log.txt"
@@ -181,7 +183,7 @@ arcpy.ReconcileVersions_management(db, "ALL_VERSIONS", "dbo.DEFAULT", versionLis
                                    "ABORT_CONFLICTS", "BY_OBJECT", "FAVOR_TARGET_VERSION","POST", 
                                    "DELETE_VERSION", reconcileFileName)
 
-# NOTE: this method will also DELTE all child versions
+# NOTE: this method will also DELETE all child versions
 
 ################################################################################################################################
 
@@ -270,9 +272,3 @@ file.close()
 #                                                                                                                              #
 #                                                                                                                              #
 ################################################################################################################################
-
-#test                                                                                                                          #
-#                                                                                                                              #
-################################################################################################################################
-
-#test
